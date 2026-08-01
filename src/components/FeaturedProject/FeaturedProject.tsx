@@ -81,9 +81,9 @@ export function FeaturedProject() {
           </motion.ul>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href={featuredProject.githubUrl} target="_blank" rel="noreferrer" variant="primary">
-              View Project
-            </Button>
+            <Button href={featuredProject.liveUrl ?? featuredProject.githubUrl} target="_blank" rel="noreferrer" variant="primary">
+  View Project
+</Button>
             <Button href={featuredProject.githubUrl} target="_blank" rel="noreferrer" variant="secondary" showArrow={false}>
               <Github size={15} className="mr-1 inline" aria-hidden="true" />
               GitHub Repository

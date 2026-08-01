@@ -148,6 +148,7 @@ export const featuredProject: Project = {
     { label: "Modern UI" },
   ],
   githubUrl: "https://github.com/ziyaurrahman739797",
+  liveUrl: "https://excel-formula-ai-2dtz.vercel.app/",
 };
 
 export const currentlyLearning: LearningItem[] = [

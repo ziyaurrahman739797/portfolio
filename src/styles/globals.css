@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pure black primary background */
+  --background: 0 0% 0%;
+  /* Very dark charcoal secondary background */
+  --surface: 0 0% 6%;
+  /* White glass, applied at low alpha via utility classes */
+  --glass: 0 0% 100%;
+  --text: 0 0% 100%;
+  --muted: 0 0% 100%;
+  --accent: 0 0% 100%;
+  --border: 0 0% 100%;
+  --glow: 0 0% 100%;
+  /* Soft emerald for success/status */
+  --success: 152 55% 55%;
+
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 999px;
+}
+
+* {
+  border-color: hsl(var(--border) / 0.08);
+}
+
+html {
+  scroll-behavior: auto; /* Lenis takes over; avoid double smoothing */
+}
+
+body {
+  background: hsl(var(--background));
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: hsl(var(--glow) / 0.2);
+  color: hsl(var(--text));
+}
+
+/* Scrollbar - minimal, matches cinematic dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--text) / 0.15);
+  border-radius: var(--radius-full);
+}
+
+/* Visible focus rings for accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--text) / 0.6);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Liquid glass surface utility */
+.glass {
+  background: hsl(var(--glass) / 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsl(var(--border) / 0.1);
+}
+
+.glass-strong {
+  background: hsl(var(--glass) / 0.08);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid hsl(var(--border) / 0.14);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 72%) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Respect reduced motion globally as a safety net; components also branch on this */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
